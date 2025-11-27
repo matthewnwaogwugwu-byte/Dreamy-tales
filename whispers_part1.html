@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whispers of Desire - Part 1</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #1a2a6c, #b21f1f, #fdbb2d);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .story-content {
+    max-width: 800px;
+    background: rgba(0,0,0,0.3);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    line-height: 1.7;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .like-btn { background: #4CAF50; color: white; }
+  .like-btn:hover { background: #45a049; }
+
+  .dislike-btn { background: #f44336; color: white; }
+  .dislike-btn:hover { background: #da190b; }
+
+  .comment-btn { background: #008CBA; color: white; }
+  .comment-btn:hover { background: #007bb5; }
+
+  .back-btn { background: white; color: #1a2a6c; }
+  .back-btn:hover { background: #fdbb2d; color: white; }
+
+  .comment-section {
+    max-width: 800px;
+    margin-top: 20px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .comment-section textarea {
+    width: 100%;
+    height: 80px;
+    border-radius: 10px;
+    padding: 10px;
+    resize: none;
+  }
+
+  .comment-list {
+    background: rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 10px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Whispers of Desire - Part 1</h1>
+
+<div class="story-content">
+  <p>Lila had always felt a strange connection to the old mansion at the edge of her village. Its gates were rusted, its windows covered with dust, yet she could feel whispers in the wind calling her name. One evening, curiosity overcame her fear. She stepped through the creaking gates, feeling the chill of the night wrap around her. The garden, overgrown with wildflowers and weeds, seemed almost alive, moving gently in the soft breeze.</p>
+
+  <p>As Lila walked further, she heard the whispers again—soft, melodic, like someone reciting words meant only for her. She followed them to a fountain in the center, where water glimmered under the moonlight. A figure appeared, barely visible, with eyes that seemed to hold centuries of secrets. Lila’s heart raced, yet she felt no danger—only an irresistible pull toward understanding the voice that called her.</p>
+
+  <p>The figure stepped closer, revealing a faint smile. "I have been waiting for you," it whispered. Lila could barely breathe, but the words resonated inside her, filling her with warmth and fear at the same time. Memories she didn’t know she had stirred within her—dreams she thought were only hers were somehow shared with this mysterious being.</p>
+
+  <p>She followed the figure through the hallways of the mansion, past portraits whose eyes seemed to follow her, to a room filled with old books and letters. Every page she touched whispered stories of love, longing, and secrets buried deep in time. It was as if the mansion itself wanted her to know, to feel, to understand.</p>
+
+  <p>Lila realized then that the whispers weren’t just sounds; they were invitations to a journey she had always been destined to take. One step forward, and she would discover the truths hidden in the heart of the mansion—and perhaps, the truths hidden within herself. The night stretched endlessly, but she felt ready to embrace the path, no matter how strange or dangerous it might be.</p>
+</div>
+
+<div class="buttons">
+  <button class="like-btn" onclick="like()">Like 👍</button>
+  <button class="dislike-btn" onclick="dislike()">Dislike 👎</button>
+  <button class="comment-btn" onclick="toggleComment()">Comment 💬</button>
+</div>
+
+<div class="comment-section" id="commentSection">
+  <textarea id="commentText" placeholder="Write your comment here..."></textarea>
+  <button onclick="addComment()">Submit Comment</button>
+  <div id="commentsList" class="comment-list"></div>
+</div>
+
+<button class="back-btn" onclick="goBack()">Back to Parts</button>
+
+<script>
+  let likes = 0;
+  let dislikes = 0;
+
+  function like() {
+    likes++;
+    alert('You liked this story! Total Likes: ' + likes);
+  }
+
+  function dislike() {
+    dislikes++;
+    alert('You disliked this story! Total Dislikes: ' + dislikes);
+  }
+
+  function toggleComment() {
+    const section = document.getElementById('commentSection');
+    section.style.display = section.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  function addComment() {
+    const text = document.getElementById('commentText').value;
+    if (text.trim() === '') {
+      alert('Please write something first.');
+      return;
+    }
+    const list = document.getElementById('commentsList');
+    const comment = document.createElement('div');
+    comment.textContent = text;
+    list.appendChild(comment);
+    document.getElementById('commentText').value = '';
+  }
+
+  function goBack() {
+    window.location.href = 'whispers_parts.html';
+  }
+</script>
+
+</body>
+</html>
