@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dreamy Tales</title>
+<title>Whispers of Desire - Parts</title>
 <style>
-  /* Body and background */
   body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(to bottom, #1a2a6c, #b21f1f, #fdbb2d);
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    color: white;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
 
-  /* Moving floating lights effect */
+  /* Floating lights */
   .light {
     position: absolute;
     width: 20px;
@@ -35,37 +35,53 @@
     100% { transform: translateY(0) translateX(0);}
   }
 
-  /* Container for story boxes */
   .container {
-    display: flex;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(5, 150px);
+    gap: 20px;
     z-index: 1;
+    margin-top: 80px;
   }
 
-  /* Story boxes */
-  .story-box {
-    width: 200px;
-    height: 200px;
-    background: rgba(255, 255, 255, 0.1);
+  .part-box {
+    width: 150px;
+    height: 150px;
+    background: rgba(255,255,255,0.1);
     border: 2px solid white;
     border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
-    text-align: center;
     cursor: pointer;
     transition: all 0.4s ease;
     box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    text-align: center;
   }
 
-  .story-box:hover {
-    background: rgba(255, 255, 255, 0.3);
+  .part-box:hover {
+    background: rgba(255,255,255,0.3);
     transform: scale(1.1);
     box-shadow: 0 0 30px rgba(255,255,255,0.8);
   }
+
+  .back-btn {
+    margin-top: 40px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: #2196F3;
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  .back-btn:hover {
+    background: #0b7dda;
+  }
+
 </style>
 </head>
 <body>
@@ -77,16 +93,26 @@
 <div class="light" style="top: 30%; left: 80%; animation-delay: 6s;"></div>
 <div class="light" style="top: 60%; left: 50%; animation-delay: 1s;"></div>
 
-<!-- Story boxes container -->
+<h1>Whispers of Desire - Select Part</h1>
+
 <div class="container">
-  <div class="story-box" onclick="goToParts('whispers')">Whispers of Desire</div>
-  <div class="story-box" onclick="goToParts('shadows')">Shadows of the Heart</div>
+  <div class="part-box" onclick="openPart(1)">Part 1</div>
+  <div class="part-box" onclick="openPart(2)">Part 2</div>
+  <div class="part-box" onclick="openPart(3)">Part 3</div>
+  <div class="part-box" onclick="openPart(4)">Part 4</div>
+  <div class="part-box" onclick="openPart(5)">Part 5</div>
+  <div class="part-box" onclick="openPart(6)">Part 6</div>
+  <div class="part-box" onclick="openPart(7)">Part 7</div>
+  <div class="part-box" onclick="openPart(8)">Part 8</div>
+  <div class="part-box" onclick="openPart(9)">Part 9</div>
+  <div class="part-box" onclick="openPart(10)">Part 10</div>
 </div>
 
+<button class="back-btn" onclick="window.location.href='index.html'">Back to Stories</button>
+
 <script>
-  function goToParts(story) {
-    // Redirect to Part Selection page
-    window.location.href = story + '_parts.html';
+  function openPart(partNumber) {
+    window.location.href = 'whispers_part' + partNumber + '.html';
   }
 </script>
 
