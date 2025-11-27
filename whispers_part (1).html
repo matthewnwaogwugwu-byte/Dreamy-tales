@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whispers of Desire - Parts</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #1a2a6c, #b21f1f, #fdbb2d);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  h1 {
+    color: white;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .part-box {
+    width: 180px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+  }
+
+  .part-box:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255,255,255,0.8);
+  }
+
+  .back-btn {
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    color: #1a2a6c;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .back-btn:hover {
+    background: #fdbb2d;
+    color: white;
+  }
+</style>
+</head>
+<body>
+
+<h1>Whispers of Desire - Parts</h1>
+
+<div class="container">
+  <div class="part-box" onclick="goToPart('whispers_part1')">Part 1</div>
+  <div class="part-box" onclick="goToPart('whispers_part2')">Part 2</div>
+</div>
+
+<button class="back-btn" onclick="goBack()">Back to Home</button>
+
+<script>
+  function goToPart(part) {
+    window.location.href = part + '.html';
+  }
+
+  function goBack() {
+    window.location.href = 'index.html';
+  }
+</script>
+
+</body>
+</html>
