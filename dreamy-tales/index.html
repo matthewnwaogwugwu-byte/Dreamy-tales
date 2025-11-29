@@ -1,87 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dreamy Tales - Home</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            padding: 20px;
-            line-height: 1.6;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dreamy Tales - Home</title>
+<style>
+    /* Reset some default styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Logo and header */
-        .logo-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+        line-height: 1.6;
+    }
 
-        .logo {
-            font-size: 48px;
-            font-weight: bold;
-            color: #4B0082;
-            position: relative;
-            display: inline-block;
-        }
+    /* Header & Navigation */
+    header {
+        background-color: #4B0082;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
 
-        .logo span.plus {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 32px;
-            color: #FF4500;
-        }
+    header .logo {
+        font-size: 28px;
+        font-weight: bold;
+        color: #fff;
+        margin-right: 40px;
+        font-family: 'Arial Black', sans-serif;
+    }
 
-        h1 {
-            text-align: center;
-            color: #4B0082;
-            margin-bottom: 40px;
-        }
+    nav ul {
+        list-style: none;
+        display: flex;
+    }
 
-        h2 {
-            color: #800000;
-            margin-top: 40px;
-        }
+    nav ul li {
+        margin-right: 25px;
+    }
 
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 5px 10px;
+    }
 
-        li {
-            margin: 10px 0;
-        }
+    nav ul li a:hover {
+        background-color: #fff;
+        color: #4B0082;
+        border-radius: 5px;
+    }
 
-        a {
-            text-decoration: none;
-            color: #0066cc;
-            font-weight: bold;
-        }
+    /* Dropdown Menu for Stories */
+    nav ul li .dropdown {
+        position: relative;
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
+    nav ul li .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #4B0082;
+        top: 30px;
+        left: 0;
+        min-width: 200px;
+        padding: 10px 0;
+        border-radius: 5px;
+    }
 
-        .section {
-            margin-bottom: 50px;
-        }
-    </style>
+    nav ul li .dropdown-content a {
+        display: block;
+        padding: 5px 20px;
+        color: #fff;
+    }
+
+    nav ul li .dropdown-content a:hover {
+        background-color: #fff;
+        color: #4B0082;
+    }
+
+    nav ul li .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    /* Main content */
+    main {
+        padding: 20px;
+    }
+
+    .section {
+        margin-bottom: 40px;
+    }
+
+    .section h2 {
+        color: #800000;
+        margin-bottom: 15px;
+    }
+
+    .section ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .section ul li {
+        margin: 8px 0;
+    }
+
+    .section ul li a {
+        text-decoration: none;
+        color: #0066cc;
+        font-weight: bold;
+    }
+
+    .section ul li a:hover {
+        text-decoration: underline;
+    }
+
+</style>
 </head>
 <body>
 
-    <!-- Logo -->
-    <div class="logo-container">
-        <div class="logo">
-            D<span class="plus">t</span>J
-        </div>
-    </div>
+<header>
+    <div class="logo">D<t style="font-size:20px; vertical-align:super;">+</t>J</div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#">Stories ▼</a>
+                <div class="dropdown-content">
+                    <a href="#">Whispers of Desire</a>
+                    <a href="#">Shadows of the Heart</a>
+                </div>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <h1>Dreamy Tales</h1>
-
+<main>
     <div class="section">
         <h2>Shadows of the Heart</h2>
         <ul>
@@ -113,13 +174,7 @@
             <li><a href="whispers_part10.html">Part 10</a></li>
         </ul>
     </div>
-
-    <div class="section">
-        <h2>Other Pages</h2>
-        <ul>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </div>
+</main>
 
 </body>
 </html>
