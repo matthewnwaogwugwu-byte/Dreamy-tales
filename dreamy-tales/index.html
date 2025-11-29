@@ -1,92 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dreamy Tales</title>
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #1a2a6c, #b21f1f, #fdbb2d);
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  /* Floating lights */
-  .light {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    animation: float 6s infinite ease-in-out;
-  }
-
-  @keyframes float {
-    0% { transform: translateY(0) translateX(0);}
-    50% { transform: translateY(-50px) translateX(50px);}
-    100% { transform: translateY(0) translateX(0);}
-  }
-
-  /* Story boxes container */
-  .container {
-    display: flex;
-    gap: 40px;
-    z-index: 1;
-  }
-
-  /* Story boxes */
-  .story-box {
-    width: 220px;
-    height: 220px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid white;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    box-shadow: 0 0 10px rgba(255,255,255,0.2);
-  }
-
-  .story-box:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.1);
-    box-shadow: 0 0 30px rgba(255,255,255,0.8);
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreamy Tales - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #4B0082;
+            text-align: center;
+        }
+        h2 {
+            color: #800000;
+            margin-top: 40px;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #0066cc;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .section {
+            margin-bottom: 50px;
+        }
+    </style>
 </head>
 <body>
 
-<!-- Floating lights -->
-<div class="light" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
-<div class="light" style="top: 50%; left: 30%; animation-delay: 2s;"></div>
-<div class="light" style="top: 70%; left: 70%; animation-delay: 4s;"></div>
-<div class="light" style="top: 30%; left: 80%; animation-delay: 6s;"></div>
-<div class="light" style="top: 60%; left: 50%; animation-delay: 1s;"></div>
+    <h1>Dreamy Tales</h1>
 
-<!-- Story boxes -->
-<div class="container">
-  <div class="story-box" onclick="goToParts('whispers_parts')">Whispers of Desire</div>
-  <div class="story-box" onclick="goToParts('shadows_parts')">Shadows of the Heart</div>
-</div>
+    <div class="section">
+        <h2>Shadows of the Heart</h2>
+        <ul>
+            <li><a href="shadows_part1.html">Part 1</a></li>
+            <li><a href="shadows_part2.html">Part 2</a></li>
+            <li><a href="shadows_part3.html">Part 3</a></li>
+            <li><a href="shadows_part4.html">Part 4</a></li>
+            <li><a href="shadows_part5.html">Part 5</a></li>
+            <li><a href="shadows_part6.html">Part 6</a></li>
+            <li><a href="shadows_part7.html">Part 7</a></li>
+            <li><a href="shadows_part8.html">Part 8</a></li>
+            <li><a href="shadows_part9.html">Part 9</a></li>
+            <li><a href="shadows_part10.html">Part 10</a></li>
+        </ul>
+    </div>
 
-<script>
-  function goToParts(story) {
-    window.location.href = story + '.html';
-  }
-</script>
+    <div class="section">
+        <h2>Whispers of Desire</h2>
+        <ul>
+            <li><a href="whispers_part1.html">Part 1</a></li>
+            <li><a href="whispers_part2.html">Part 2</a></li>
+            <li><a href="whispers_part3.html">Part 3</a></li>
+            <li><a href="whispers_part4.html">Part 4</a></li>
+            <li><a href="whispers_part5.html">Part 5</a></li>
+            <li><a href="whispers_part6.html">Part 6</a></li>
+            <li><a href="whispers_part7.html">Part 7</a></li>
+            <li><a href="whispers_part8.html">Part 8</a></li>
+            <li><a href="whispers_part9.html">Part 9</a></li>
+            <li><a href="whispers_part10.html">Part 10</a></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Other Pages</h2>
+        <ul>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
 
 </body>
 </html>
