@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dreamy Tales by Jerry</title>
+
+<style>
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #4B0082;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header img {
+    height: 50px;
+    margin-right: 15px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 12px;
+    font-size: 16px;
+    transition: background 0.2s, color 0.2s;
+}
+
+nav button:hover {
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 5px;
+}
+
+.toggle-mode {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background: none;
+    color: white;
+    font-weight: bold;
+}
+
+section {
+    display: none;
+    padding: 30px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+section.active {
+    display: block;
+}
+
+h1, h2 {
+    margin-top: 0;
+}
+
+.home-intro {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.story-category {
+    margin-bottom: 20px;
+}
+
+.story-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.story-list li {
+    margin-bottom: 10px;
+}
+
+.story-list button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #4B0082;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.story-list button:hover {
+    background-color: #4B0082;
+    color: #fff;
+}
+
+.part-section {
+    display: none;
+    margin-top: 15px;
+    border-left: 3px solid #4B0082;
+    padding-left: 15px;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #ddd;
+}
+
+body.dark-mode header {
+    background-color: #1E1E1E;
+}
+
+body.dark-mode nav button {
+    color: #ddd;
+}
+
+body.dark-mode nav button:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+    background-color: #1E1E1E;
+    color: #ddd;
+    border: 1px solid #555;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <div style="display:flex; align-items:center;">
+        <img src="Energetic Logo for Brand - Dtj_20251129_112802_0000.png" alt="Logo">
+        <span style="font-size:24px; font-weight:bold;">Dreamy Tales</span>
+    </div>
+
+    <nav>
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('stories')">Stories</button>
+        <button onclick="showSection('about')">About</button>
+        <button onclick="showSection('contact')">Contact</button>
+        <button class="toggle-mode" onclick="toggleDarkMode()">Dark/Light</button>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="active">
+    <h1>Welcome to Dreamy Tales by Jerry</h1>
+    <p class="home-intro">
+        A world of emotions, shadows, and whispers. Explore our stories, dive into imagination, and experience every heart’s journey.
+    </p>
+</section>
+
+<!-- STORIES -->
+<section id="stories">
+    <h1>Stories</h1>
+
+    <!-- WHISPERS OF DESIRE -->
+    <div class="story-category">
+        <h2>Whispers of Desire</h2>
+        <ul class="story-list">
+            <li><button onclick="togglePart('whisper1')">Part 1</button></li>
+            <li><button onclick="togglePart('whisper2')">Part 2</button></li>
+            <li><button onclick="togglePart('whisper3')">Part 3</button></li>
+            <li><button onclick="togglePart('whisper4')">Part 4</button></li>
+            <li><button onclick="togglePart('whisper5')">Part 5</button></li>
+            <li><button onclick="togglePart('whisper6')">Part 6</button></li>
+            <li><button onclick="togglePart('whisper7')">Part 7</button></li>
+            <li><button onclick="togglePart('whisper8')">Part 8</button></li>
+            <li><button onclick="togglePart('whisper9')">Part 9</button></li>
+            <li><button onclick="togglePart('whisper10')">Part 10</button></li>
+        </ul>
+
+        <!-- YOU WILL PASTE YOUR REAL STORY CONTENTS HERE -->
+        <div id="whisper1" class="part-section"></div>
+        <div id="whisper2" class="part-section"></div>
+        <div id="whisper3" class="part-section"></div>
+        <div id="whisper4" class="part-section"></div>
+        <div id="whisper5" class="part-section"></div>
+        <div id="whisper6" class="part-section"></div>
+        <div id="whisper7" class="part-section"></div>
+        <div id="whisper8" class="part-section"></div>
+        <div id="whisper9" class="part-section"></div>
+        <div id="whisper10" class="part-section"></div>
+    </div>
+
+    <!-- SHADOWS OF THE HEART -->
+    <div class="story-category">
+        <h2>Shadows of the Heart</h2>
+        <ul class="story-list">
+            <li><button onclick="togglePart('shadow1')">Part 1</button></li>
+            <li><button onclick="togglePart('shadow2')">Part 2</button></li>
+            <li><button onclick="togglePart('shadow3')">Part 3</button></li>
+            <li><button onclick="togglePart('shadow4')">Part 4</button></li>
+            <li><button onclick="togglePart('shadow5')">Part 5</button></li>
+            <li><button onclick="togglePart('shadow6')">Part 6</button></li>
+            <li><button onclick="togglePart('shadow7')">Part 7</button></li>
+            <li><button onclick="togglePart('shadow8')">Part 8</button></li>
+            <li><button onclick="togglePart('shadow9')">Part 9</button></li>
+            <li><button onclick="togglePart('shadow10')">Part 10</button></li>
+        </ul>
+
+        <!-- YOU WILL PASTE REAL CONTENT HERE -->
+        <div id="shadow1" class="part-section"></div>
+        <div id="shadow2" class="part-section"></div>
+        <div id="shadow3" class="part-section"></div>
+        <div id="shadow4" class="part-section"></div>
+        <div id="shadow5" class="part-section"></div>
+        <div id="shadow6" class="part-section"></div>
+        <div id="shadow7" class="part-section"></div>
+        <div id="shadow8" class="part-section"></div>
+        <div id="shadow9" class="part-section"></div>
+        <div id="shadow10" class="part-section"></div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h1>About Dreamy Tales</h1>
+    <p>
+        Dreamy Tales is a digital storytelling platform created by Jerry...
+    </p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h1>Contact Jerry</h1>
+    <p class="contact-text">
+        We would love to hear from you...
+    </p>
+    <form onsubmit="submitContact(event)">
+        <input type="text" placeholder="Your Name" required id="contactName">
+        <input type="email" placeholder="Your Email" required id="contactEmail">
+        <textarea placeholder="Your Message" required id="contactMessage" rows="5"></textarea>
+        <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+</section>
+
+<script>
+function showSection(id) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0,0);
+}
+
+function togglePart(id) {
+    let part = document.getElementById(id);
+    part.style.display = part.style.display === "block" ? "none" : "block";
+}
+
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+}
+
+function submitContact(event) {
+    event.preventDefault();
+    alert("Thank you, " + document.getElementById("contactName").value + "! Your message has been received.");
+    document.getElementById("contactName").value = "";
+    document.getElementById("contactEmail").value = "";
+    document.getElementById("contactMessage").value = "";
+}
+</script>
+
+</body>
+</html>
