@@ -3,150 +3,278 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dreamy Tales - Home</title>
+<title>Dreamy Tales by Jerry</title>
 <style>
-    /* Reset & Base */
-    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Open Sans', sans-serif; }
-    body { background-color:#f5f5f5; color:#333; line-height:1.6; }
-
-    /* Header / Navbar */
-    header { 
-        display:flex; 
-        align-items:center; 
-        justify-content:space-between; 
-        padding:10px 20px; 
-        background-color:#fff; 
-        box-shadow:0 2px 5px rgba(0,0,0,0.1); 
-        position:sticky; 
-        top:0; 
-        z-index:1000;
+    /* General Styles */
+    body {
+        margin: 0;
+        font-family: 'Open Sans', sans-serif;
+        line-height: 1.6;
+        transition: background-color 0.3s, color 0.3s;
+        background-color: #f5f5f5;
+        color: #333;
     }
-    header img { height:50px; }
-
-    nav ul { list-style:none; display:flex; align-items:center; }
-    nav ul li { margin-left:25px; position:relative; }
-    nav ul li a { text-decoration:none; color:#333; font-weight:bold; padding:5px 0; transition:0.3s; }
-    nav ul li a:hover { color:#4B0082; }
-
-    /* Dropdown */
-    nav ul li ul { 
-        display:none; 
-        position:absolute; 
-        top:35px; 
-        left:0; 
-        background:#fff; 
-        box-shadow:0 2px 8px rgba(0,0,0,0.2); 
-        list-style:none; 
-        padding:10px 0; 
-        min-width:180px;
-        border-radius:5px;
-        opacity:0;
-        transform: translateY(-10px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #4B0082;
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 100;
     }
-    nav ul li:hover > ul { display:block; opacity:1; transform: translateY(0); }
-    nav ul li ul li { margin:0; }
-    nav ul li ul li a { padding:8px 15px; display:block; color:#333; transition:0.2s; }
-    nav ul li ul li a:hover { background:#f0f0f0; color:#4B0082; }
-
-    /* Nested Dropdown (Parts) */
-    nav ul li ul li ul { 
-        top:0; left:100%; 
-        border-radius:5px;
-        box-shadow:0 2px 8px rgba(0,0,0,0.2);
-        opacity:0; transform: translateX(-10px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
+    header img {
+        height: 50px;
+        margin-right: 15px;
     }
-    nav ul li ul li:hover > ul { display:block; opacity:1; transform: translateX(0); }
-
-    /* Hero / Intro */
-    .hero { 
-        text-align:center; 
-        padding:60px 20px; 
-        background:linear-gradient(to right, #e0c3fc, #8ec5fc); 
-        color:#fff;
+    nav {
+        display: flex;
+        gap: 20px;
     }
-    .hero h1 { font-size:2.5rem; margin-bottom:20px; }
-    .hero p { font-size:1.2rem; }
-
-    /* Footer */
-    footer { 
-        text-align:center; 
-        padding:20px; 
-        background:#fff; 
-        box-shadow:0 -2px 5px rgba(0,0,0,0.1); 
-        margin-top:50px;
+    nav button {
+        background: none;
+        border: none;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 8px 12px;
+        font-size: 16px;
+        transition: background 0.2s, color 0.2s;
     }
-    footer a { text-decoration:none; color:#4B0082; margin:0 10px; }
+    nav button:hover {
+        background-color: rgba(255,255,255,0.2);
+        border-radius: 5px;
+    }
+    .toggle-mode {
+        cursor: pointer;
+        padding: 8px 12px;
+        border: 1px solid white;
+        border-radius: 5px;
+        background: none;
+        color: white;
+        font-weight: bold;
+    }
+    section {
+        display: none;
+        padding: 30px 20px;
+        max-width: 1000px;
+        margin: auto;
+    }
+    section.active {
+        display: block;
+    }
+    h1, h2 {
+        margin-top: 0;
+    }
+    .home-intro {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+    .story-category {
+        margin-bottom: 20px;
+    }
+    .story-list {
+        list-style: none;
+        padding-left: 0;
+    }
+    .story-list li {
+        margin-bottom: 10px;
+    }
+    .story-list button {
+        padding: 5px 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border: 1px solid #4B0082;
+        background-color: #fff;
+        border-radius: 5px;
+        transition: background 0.2s, color 0.2s;
+    }
+    .story-list button:hover {
+        background-color: #4B0082;
+        color: #fff;
+    }
+    .part-section {
+        display: none;
+        margin-top: 15px;
+        border-left: 3px solid #4B0082;
+        padding-left: 15px;
+    }
+    .contact-text {
+        max-width: 600px;
+    }
+    input, textarea {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+    button.submit-btn {
+        padding: 10px 15px;
+        background-color: #4B0082;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button.submit-btn:hover {
+        background-color: #6A0DAD;
+    }
 
-    /* Responsive */
-    @media(max-width:768px){
-        nav ul { flex-direction:column; align-items:flex-start; }
-        nav ul li { margin-left:0; margin-top:10px; }
-        nav ul li ul { position:relative; top:0; left:0; transform:none; opacity:1; display:none; }
-        nav ul li:hover > ul { display:block; }
+    /* Dark Mode */
+    body.dark-mode {
+        background-color: #121212;
+        color: #ddd;
+    }
+    body.dark-mode header {
+        background-color: #1E1E1E;
+    }
+    body.dark-mode nav button {
+        color: #ddd;
+    }
+    body.dark-mode nav button:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    body.dark-mode input, body.dark-mode textarea {
+        background-color: #1E1E1E;
+        color: #ddd;
+        border: 1px solid #555;
     }
 </style>
 </head>
 <body>
 
-<!-- Header / Navbar -->
 <header>
-    <img src="Energetic Logo for Brand - Dtj_20251129_112802_0000.png" alt="Dreamy Tales Logo">
+    <div style="display:flex; align-items:center;">
+        <img src="Energetic Logo for Brand - Dtj_20251129_112802_0000.png" alt="Logo">
+        <span style="font-size:24px; font-weight:bold;">Dreamy Tales</span>
+    </div>
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li>
-                <a href="#">Stories ▼</a>
-                <ul>
-                    <li><a href="#">Whispers of Desire</a>
-                        <ul>
-                            <li><a href="whispers_part1.html">Part 1</a></li>
-                            <li><a href="whispers_part2.html">Part 2</a></li>
-                            <li><a href="whispers_part3.html">Part 3</a></li>
-                            <li><a href="whispers_part4.html">Part 4</a></li>
-                            <li><a href="whispers_part5.html">Part 5</a></li>
-                            <li><a href="whispers_part6.html">Part 6</a></li>
-                            <li><a href="whispers_part7.html">Part 7</a></li>
-                            <li><a href="whispers_part8.html">Part 8</a></li>
-                            <li><a href="whispers_part9.html">Part 9</a></li>
-                            <li><a href="whispers_part10.html">Part 10</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Shadows of the Heart</a>
-                        <ul>
-                            <li><a href="shadows_part1.html">Part 1</a></li>
-                            <li><a href="shadows_part2.html">Part 2</a></li>
-                            <li><a href="shadows_part3.html">Part 3</a></li>
-                            <li><a href="shadows_part4.html">Part 4</a></li>
-                            <li><a href="shadows_part5.html">Part 5</a></li>
-                            <li><a href="shadows_part6.html">Part 6</a></li>
-                            <li><a href="shadows_part7.html">Part 7</a></li>
-                            <li><a href="shadows_part8.html">Part 8</a></li>
-                            <li><a href="shadows_part9.html">Part 9</a></li>
-                            <li><a href="shadows_part10.html">Part 10</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('stories')">Stories</button>
+        <button onclick="showSection('about')">About</button>
+        <button onclick="showSection('contact')">Contact</button>
+        <button class="toggle-mode" onclick="toggleDarkMode()">Dark/Light</button>
     </nav>
 </header>
 
-<!-- Hero / Intro -->
-<section class="hero">
-    <h1>Welcome to Dreamy Tales by Jerry 🤫🤫</h1>
-    <p>Explore captivating stories and immerse yourself in worlds of mystery, love, and adventure.</p>
+<!-- Home Section -->
+<section id="home" class="active">
+    <h1>Welcome to Dreamy Tales by Jerry</h1>
+    <p class="home-intro">A world of emotions, shadows, and whispers. Explore our stories, dive into imagination, and experience every heart’s journey.</p>
 </section>
 
-<!-- Footer -->
-<footer>
-    &copy; 2025 Dreamy Tales. All Rights Reserved.
-    <br>
-    <a href="index.html">Home</a> | <a href="contact.html">Contact</a> | <a href="#">About</a>
-</footer>
+<!-- Stories Section -->
+<section id="stories">
+    <h1>Stories</h1>
+
+    <div class="story-category">
+        <h2>Whispers of Desire</h2>
+        <ul class="story-list">
+            <li><button onclick="togglePart('whisper1')">Part 1</button></li>
+            <li><button onclick="togglePart('whisper2')">Part 2</button></li>
+            <li><button onclick="togglePart('whisper3')">Part 3</button></li>
+            <li><button onclick="togglePart('whisper4')">Part 4</button></li>
+            <li><button onclick="togglePart('whisper5')">Part 5</button></li>
+            <li><button onclick="togglePart('whisper6')">Part 6</button></li>
+            <li><button onclick="togglePart('whisper7')">Part 7</button></li>
+            <li><button onclick="togglePart('whisper8')">Part 8</button></li>
+            <li><button onclick="togglePart('whisper9')">Part 9</button></li>
+            <li><button onclick="togglePart('whisper10')">Part 10</button></li>
+        </ul>
+        <div id="whisper1" class="part-section"><p>Whispers Part 1 full story content goes here...</p></div>
+        <div id="whisper2" class="part-section"><p>Whispers Part 2 full story content goes here...</p></div>
+        <div id="whisper3" class="part-section"><p>Whispers Part 3 full story content goes here...</p></div>
+        <div id="whisper4" class="part-section"><p>Whispers Part 4 full story content goes here...</p></div>
+        <div id="whisper5" class="part-section"><p>Whispers Part 5 full story content goes here...</p></div>
+        <div id="whisper6" class="part-section"><p>Whispers Part 6 full story content goes here...</p></div>
+        <div id="whisper7" class="part-section"><p>Whispers Part 7 full story content goes here...</p></div>
+        <div id="whisper8" class="part-section"><p>Whispers Part 8 full story content goes here...</p></div>
+        <div id="whisper9" class="part-section"><p>Whispers Part 9 full story content goes here...</p></div>
+        <div id="whisper10" class="part-section"><p>Whispers Part 10 full story content goes here...</p></div>
+    </div>
+
+    <div class="story-category">
+        <h2>Shadows of the Heart</h2>
+        <ul class="story-list">
+            <li><button onclick="togglePart('shadow1')">Part 1</button></li>
+            <li><button onclick="togglePart('shadow2')">Part 2</button></li>
+            <li><button onclick="togglePart('shadow3')">Part 3</button></li>
+            <li><button onclick="togglePart('shadow4')">Part 4</button></li>
+            <li><button onclick="togglePart('shadow5')">Part 5</button></li>
+            <li><button onclick="togglePart('shadow6')">Part 6</button></li>
+            <li><button onclick="togglePart('shadow7')">Part 7</button></li>
+            <li><button onclick="togglePart('shadow8')">Part 8</button></li>
+            <li><button onclick="togglePart('shadow9')">Part 9</button></li>
+            <li><button onclick="togglePart('shadow10')">Part 10</button></li>
+        </ul>
+        <div id="shadow1" class="part-section"><p>Shadows Part 1 full story content goes here...</p></div>
+        <div id="shadow2" class="part-section"><p>Shadows Part 2 full story content goes here...</p></div>
+        <div id="shadow3" class="part-section"><p>Shadows Part 3 full story content goes here...</p></div>
+        <div id="shadow4" class="part-section"><p>Shadows Part 4 full story content goes here...</p></div>
+        <div id="shadow5" class="part-section"><p>Shadows Part 5 full story content goes here...</p></div>
+        <div id="shadow6" class="part-section"><p>Shadows Part 6 full story content goes here...</p></div>
+        <div id="shadow7" class="part-section"><p>Shadows Part 7 full story content goes here...</p></div>
+        <div id="shadow8" class="part-section"><p>Shadows Part 8 full story content goes here...</p></div>
+        <div id="shadow9" class="part-section"><p>Shadows Part 9 full story content goes here...</p></div>
+        <div id="shadow10" class="part-section"><p>Shadows Part 10 full story content goes here...</p></div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+    <h1>About Dreamy Tales</h1>
+    <p>
+        Dreamy Tales is a digital storytelling platform created by Jerry, designed to transport readers into worlds of imagination, emotion, and reflection. Through immersive narratives, characters come to life and journeys unfold, exploring love, heartache, resilience, and self-discovery. Each story is crafted with care to touch the heart and ignite curiosity. Whether exploring mystical lands, engaging with everyday dilemmas, or diving deep into personal journeys, Dreamy Tales ensures readers experience narratives with depth, inspiration, and emotion. Join us on a journey where every page resonates and every character leaves a lasting impression.
+    </p>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+    <h1>Contact Jerry</h1>
+    <p class="contact-text">
+        We would love to hear from you! If you have questions, suggestions, or just want to share your thoughts about Dreamy Tales, please send an email. Your feedback helps us grow and improve. Every message is read with care and appreciated. Feel free to reach out with inquiries about stories, collaborations, or any creative ideas you may have.
+    </p>
+    <form onsubmit="submitContact(event)">
+        <input type="text" placeholder="Your Name" required id="contactName">
+        <input type="email" placeholder="Your Email" required id="contactEmail">
+        <textarea placeholder="Your Message" required id="contactMessage" rows="5"></textarea>
+        <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+</section>
+
+<script>
+    // Section navigation
+    function showSection(id) {
+        document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        window.scrollTo(0,0);
+    }
+
+    // Toggle story parts
+    function togglePart(id) {
+        const part = document.getElementById(id);
+        part.style.display = part.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Dark mode toggle
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+    }
+
+    // Simple contact submission simulation
+    function submitContact(event) {
+        event.preventDefault();
+        alert("Thank you, " + document.getElementById("contactName").value + "! Your message has been received.");
+        document.getElementById("contactName").value = '';
+        document.getElementById("contactEmail").value = '';
+        document.getElementById("contactMessage").value = '';
+    }
+</script>
 
 </body>
 </html>
