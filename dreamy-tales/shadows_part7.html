@@ -5,32 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shadows of the Heart - Part 7</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f9f9f9; color: #333; padding: 20px; line-height: 1.6; }
+        body { font-family: Arial, sans-serif; background-color: #f5f5f5; color: #333; padding: 20px; line-height: 1.6; }
         h1 { color: #4B0082; }
         a { text-decoration: none; color: #0066cc; }
         a:hover { text-decoration: underline; }
         .footer { margin-top: 30px; }
+        .comments-section { margin-top: 40px; }
+        .comment { border-bottom: 1px solid #ccc; padding: 10px 0; }
+        button { margin-right: 10px; padding: 5px 10px; }
     </style>
 </head>
 <body>
 
-<h1>Shadows of the Heart - Part 7</h1>
+    <h1>Shadows of the Heart - Part 7</h1>
 
-<p>The rain fell heavily that evening. Lina sat by the window, staring at the dark streets, feeling the weight of all her choices pressing down on her. Every sound outside seemed louder—the footsteps, the distant car horns, the rustle of leaves. They all reminded her of the secrets she had tried to hide.</p>
+    <p>As Lina walked through the quiet streets that evening, her thoughts swirled like the autumn leaves around her. She had faced many emotions in the past days—confusion, longing, and a spark of hope that refused to fade.</p>
 
-<p>Her phone vibrated, and a message appeared from him. She hesitated before opening it. It was short, simple: "I need to see you." Her heart thumped, torn between fear and longing. Memories of the past weeks flashed through her mind—the laughter, the moments of closeness, and the moments of doubt. Could she trust him again?</p>
+    <p>She thought about the conversations she’d had with him, the silences that spoke louder than words. Every interaction had left a mark on her heart, a mixture of warmth and hesitation.</p>
 
-<p>She decided to go out, wrapping herself tightly in her coat. The streets were empty, slick with rain, reflecting the neon signs from the shops. Each step she took felt heavier than the last, as if the night itself was testing her courage.</p>
+    <p>At the park, she noticed the fountain shimmering under the streetlights. It reminded her that life, like water, keeps moving forward even when obstacles appear. She felt a resolve forming inside her, a promise to face whatever shadows lingered.</p>
 
-<p>Suddenly, she heard a soft voice calling her name. She froze, unsure if she should run or answer. The voice grew closer, filled with urgency and concern. It was him. And in that moment, Lina realized that some connections, once formed, could not be ignored, no matter how many shadows stood in the way.</p>
+    <p>Later, they met again near the small bookshop. This time, the conversation flowed more freely. They shared stories of their past, dreams for the future, and the subtle fears that kept them guarded. Lina realized that trust was not about forgetting the past, but about choosing to move forward despite it.</p>
 
-<p>He reached out, holding an umbrella over her head. "I couldn’t wait any longer," he said softly. "We need to talk, just the two of us." Lina looked into his eyes and saw the honesty she had been searching for. Slowly, she nodded, and together, they walked into the night, ready to face whatever awaited them.</p>
+    <p>Night fell, and the town seemed to hold its breath. Lina returned home, feeling a blend of serenity and anticipation. The shadows of the heart were still present, but she felt a courage she hadn’t known before—a courage to embrace life and love without fear.</p>
 
-<div class="footer">
-    <a href="shadows_part8.html">Next Part →</a> |
-    <a href="index.html">Home</a> |
-    <a href="contact.html">Contact</a>
-</div>
+    <div class="footer">
+        <a href="shadows_part6.html">← Previous Part</a> | 
+        <a href="index.html">Home</a> | 
+        <a href="shadows_part8.html">Next Part →</a>
+    </div>
+
+    <div class="comments-section">
+        <h2>Reactions & Comments</h2>
+        <button id="likeBtn">👍🏿 Like (<span id="likeCount">0</span>)</button>
+        <button id="dislikeBtn">👎🏿 Dislike (<span id="dislikeCount">0</span>)</button>
+
+        <h3>Leave a Comment:</h3>
+        <input type="text" id="commentInput" placeholder="Write a comment..." style="width:80%; padding:5px;">
+        <button id="submitComment">Submit</button>
+
+        <div id="commentsList"></div>
+    </div>
+
+    <!-- Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+        import { getFirestore, collection, addDoc, doc, updateDoc, increment, onSnapshot } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyC2AdR1P85jqzsZv2wrw8klfotXYDwn7j4",
+            authDomain: "dreamy-tales-78de0.firebaseapp.com",
+            projectId: "dreamy-tales-78de0",
+            storageBucket: "dreamy-tales-78de0.appspot.com",
+            messagingSenderId: "377795995336",
+            appId: "1:377795995336:web:ff99da8aaf3fe76741a7fd"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const likesRef = doc(db, "shadows_part7", "reactions");
+        const commentsRef = collection(db, "shadows_part7", "comments");
+
+        const likeCount = document.getElementById("likeCount");
+        const dislikeCount = document.getElementById("dislikeCount");
+        const likeBtn = document.getElementById("likeBtn");
+        const dislikeBtn = document.getElementById("dislikeBtn");
+        const commentInput = document.getElementById("commentInput");
+        const submitComment = document.getElementById("submitComment");
+        const commentsList = document.getElementById("commentsList");
+
+        onSnapshot(likesRef, (docSnap) => {
+            if(docSnap.exists()) {
+                likeCount.textContent = docSnap.data().likes || 0;
+                dislikeCount.textContent = docSnap.data().dislikes || 0;
+            }
+        });
+
+        likeBtn.addEventListener("click", async () => {
+            await updateDoc(likesRef, { likes: increment(1) });
+        });
+
+        dislikeBtn.addEventListener("click", async () => {
+            await updateDoc(likesRef, { dislikes: increment(1) });
+        });
+
+        onSnapshot(commentsRef, (snapshot) => {
+            commentsList.innerHTML = "";
+            snapshot.forEach(doc => {
+                const div = document.createElement("div");
+                div.className = "comment";
+                div.textContent = doc.data().text;
+                commentsList.appendChild(div);
+            });
+        });
+
+        submitComment.addEventListener("click", async () => {
+            if(commentInput.value.trim() !== "") {
+                await addDoc(commentsRef, { text: commentInput.value });
+                commentInput.value = "";
+            }
+        });
+    </script>
 
 </body>
 </html>
