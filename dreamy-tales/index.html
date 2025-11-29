@@ -1,165 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dreamy Tales - Home</title>
-<style>
-    /* Reset some default styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreamy Tales - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
 
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f5f5f5;
-        color: #333;
-        line-height: 1.6;
-    }
+        /* Navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #4B0082;
+            padding: 10px 20px;
+            color: white;
+        }
+        .navbar img {
+            height: 50px;
+            margin-right: 20px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background-color: #6a0dad;
+        }
 
-    /* Header & Navigation */
-    header {
-        background-color: #4B0082;
-        display: flex;
-        align-items: center;
-        padding: 10px 20px;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 38px;
+            left: 0;
+            background-color: white;
+            color: black;
+            min-width: 200px;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 10px 15px;
+            color: #333;
+        }
+        .dropdown-content a:hover {
+            background-color: #eee;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
 
-    header .logo {
-        font-size: 28px;
-        font-weight: bold;
-        color: #fff;
-        margin-right: 40px;
-        font-family: 'Arial Black', sans-serif;
-    }
+        /* Intro */
+        .intro {
+            text-align: center;
+            margin: 40px 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+        }
 
-    nav ul {
-        list-style: none;
-        display: flex;
-    }
-
-    nav ul li {
-        margin-right: 25px;
-    }
-
-    nav ul li a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: bold;
-        padding: 5px 10px;
-    }
-
-    nav ul li a:hover {
-        background-color: #fff;
-        color: #4B0082;
-        border-radius: 5px;
-    }
-
-    /* Dropdown Menu for Stories */
-    nav ul li .dropdown {
-        position: relative;
-    }
-
-    nav ul li .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #4B0082;
-        top: 30px;
-        left: 0;
-        min-width: 200px;
-        padding: 10px 0;
-        border-radius: 5px;
-    }
-
-    nav ul li .dropdown-content a {
-        display: block;
-        padding: 5px 20px;
-        color: #fff;
-    }
-
-    nav ul li .dropdown-content a:hover {
-        background-color: #fff;
-        color: #4B0082;
-    }
-
-    nav ul li .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-    /* Main content */
-    main {
-        padding: 20px;
-    }
-
-    .section {
-        margin-bottom: 40px;
-    }
-
-    .section h2 {
-        color: #800000;
-        margin-bottom: 15px;
-    }
-
-    .section ul {
-        list-style: none;
-        padding-left: 0;
-    }
-
-    .section ul li {
-        margin: 8px 0;
-    }
-
-    .section ul li a {
-        text-decoration: none;
-        color: #0066cc;
-        font-weight: bold;
-    }
-
-    .section ul li a:hover {
-        text-decoration: underline;
-    }
-
-</style>
+        /* Story sections */
+        .story-section {
+            margin: 30px 20px;
+        }
+        .story-section h2 {
+            color: #800000;
+        }
+        .story-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .story-section ul li {
+            margin: 8px 0;
+        }
+        .story-section ul li a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+        .story-section ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <div class="logo">D<t style="font-size:20px; vertical-align:super;">+</t>J</div>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown">
-                <a href="#">Stories ▼</a>
+    <!-- Navbar -->
+    <div class="navbar">
+        <img src="Energetic Logo for Brand - Dtj_20251129_112802_0000.png" alt="Dreamy Tales Logo">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#">Stories ▾</a>
                 <div class="dropdown-content">
-                    <a href="#">Whispers of Desire</a>
-                    <a href="#">Shadows of the Heart</a>
+                    <a href="#whispers">Whispers of Desire</a>
+                    <a href="#shadows">Shadows of the Heart</a>
                 </div>
-            </li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main>
-    <div class="section">
-        <h2>Shadows of the Heart</h2>
-        <ul>
-            <li><a href="shadows_part1.html">Part 1</a></li>
-            <li><a href="shadows_part2.html">Part 2</a></li>
-            <li><a href="shadows_part3.html">Part 3</a></li>
-            <li><a href="shadows_part4.html">Part 4</a></li>
-            <li><a href="shadows_part5.html">Part 5</a></li>
-            <li><a href="shadows_part6.html">Part 6</a></li>
-            <li><a href="shadows_part7.html">Part 7</a></li>
-            <li><a href="shadows_part8.html">Part 8</a></li>
-            <li><a href="shadows_part9.html">Part 9</a></li>
-            <li><a href="shadows_part10.html">Part 10</a></li>
-        </ul>
+            </div>
+            <a href="contact.html">Contact</a>
+            <a href="#">About</a>
+        </div>
     </div>
 
-    <div class="section">
+    <!-- Intro -->
+    <div class="intro">
+        <h1>Welcome to Dreamy Tales by Jerry 🤫🤫</h1>
+        <p>Discover exciting stories that take you on a journey of love, mystery, and adventure.</p>
+    </div>
+
+    <!-- Whispers of Desire -->
+    <div id="whispers" class="story-section">
         <h2>Whispers of Desire</h2>
         <ul>
             <li><a href="whispers_part1.html">Part 1</a></li>
@@ -174,7 +141,23 @@
             <li><a href="whispers_part10.html">Part 10</a></li>
         </ul>
     </div>
-</main>
+
+    <!-- Shadows of the Heart -->
+    <div id="shadows" class="story-section">
+        <h2>Shadows of the Heart</h2>
+        <ul>
+            <li><a href="shadows_part1.html">Part 1</a></li>
+            <li><a href="shadows_part2.html">Part 2</a></li>
+            <li><a href="shadows_part3.html">Part 3</a></li>
+            <li><a href="shadows_part4.html">Part 4</a></li>
+            <li><a href="shadows_part5.html">Part 5</a></li>
+            <li><a href="shadows_part6.html">Part 6</a></li>
+            <li><a href="shadows_part7.html">Part 7</a></li>
+            <li><a href="shadows_part8.html">Part 8</a></li>
+            <li><a href="shadows_part9.html">Part 9</a></li>
+            <li><a href="shadows_part10.html">Part 10</a></li>
+        </ul>
+    </div>
 
 </body>
 </html>
