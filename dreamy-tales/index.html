@@ -5,145 +5,192 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dreamy Tales by Jerry</title>
 <style>
-    /* General Styles */
-    body {
-        margin: 0;
-        font-family: 'Open Sans', sans-serif;
-        line-height: 1.6;
-        transition: background-color 0.3s, color 0.3s;
-        background-color: #f5f5f5;
-        color: #333;
-    }
-    header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 20px;
-        background-color: #4B0082;
-        color: white;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-    }
-    header img {
-        height: 50px;
-        margin-right: 15px;
-    }
-    nav {
-        display: flex;
-        gap: 20px;
-    }
-    nav button {
-        background: none;
-        border: none;
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-        padding: 8px 12px;
-        font-size: 16px;
-        transition: background 0.2s, color 0.2s;
-    }
-    nav button:hover {
-        background-color: rgba(255,255,255,0.2);
-        border-radius: 5px;
-    }
-    .toggle-mode {
-        cursor: pointer;
-        padding: 8px 12px;
-        border: 1px solid white;
-        border-radius: 5px;
-        background: none;
-        color: white;
-        font-weight: bold;
-    }
-    section {
-        display: none;
-        padding: 30px 20px;
-        max-width: 1000px;
-        margin: auto;
-    }
-    section.active {
-        display: block;
-    }
-    h1, h2 {
-        margin-top: 0;
-    }
-    .home-intro {
-        font-size: 24px;
-        font-weight: bold;
-        margin-top: 20px;
-    }
-    .story-category {
-        margin-bottom: 20px;
-    }
-    .story-list {
-        list-style: none;
-        padding-left: 0;
-    }
-    .story-list li {
-        margin-bottom: 10px;
-    }
-    .story-list button {
-        padding: 5px 10px;
-        font-size: 16px;
-        cursor: pointer;
-        border: 1px solid #4B0082;
-        background-color: #fff;
-        border-radius: 5px;
-        transition: background 0.2s, color 0.2s;
-    }
-    .story-list button:hover {
-        background-color: #4B0082;
-        color: #fff;
-    }
-    .part-section {
-        display: none;
-        margin-top: 15px;
-        border-left: 3px solid #4B0082;
-        padding-left: 15px;
-    }
-    .contact-text {
-        max-width: 600px;
-    }
-    input, textarea {
-        width: 100%;
-        padding: 8px;
-        margin: 5px 0 15px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        font-size: 16px;
-    }
-    button.submit-btn {
-        padding: 10px 15px;
-        background-color: #4B0082;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    button.submit-btn:hover {
-        background-color: #6A0DAD;
-    }
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #f5f5f5;
+    color: #333;
+}
 
-    /* Dark Mode */
-    body.dark-mode {
-        background-color: #121212;
-        color: #ddd;
-    }
-    body.dark-mode header {
-        background-color: #1E1E1E;
-    }
-    body.dark-mode nav button {
-        color: #ddd;
-    }
-    body.dark-mode nav button:hover {
-        background-color: rgba(255,255,255,0.1);
-    }
-    body.dark-mode input, body.dark-mode textarea {
-        background-color: #1E1E1E;
-        color: #ddd;
-        border: 1px solid #555;
-    }
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #4B0082;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header img {
+    height: 50px;
+    margin-right: 15px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 12px;
+    font-size: 16px;
+    transition: background 0.2s, color 0.2s;
+}
+
+nav button:hover {
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 5px;
+}
+
+.toggle-mode {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background: none;
+    color: white;
+    font-weight: bold;
+}
+
+section {
+    display: none;
+    padding: 30px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+section.active {
+    display: block;
+}
+
+h1, h2 {
+    margin-top: 0;
+}
+
+.home-intro {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.story-category {
+    margin-bottom: 20px;
+}
+
+.story-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.story-list li {
+    margin-bottom: 10px;
+}
+
+.story-list button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #4B0082;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.story-list button:hover {
+    background-color: #4B0082;
+    color: #fff;
+}
+
+.contact-text {
+    max-width: 600px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+button.submit-btn {
+    padding: 10px 15px;
+    background-color: #4B0082;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.submit-btn:hover {
+    background-color: #6A0DAD;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #ddd;
+}
+
+body.dark-mode header {
+    background-color: #1E1E1E;
+}
+
+body.dark-mode nav button {
+    color: #ddd;
+}
+
+body.dark-mode nav button:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+body.dark-mode input, body.dark-mode textarea {
+    background-color: #1E1E1E;
+    color: #ddd;
+    border: 1px solid #555;
+}
+
+/* Modal */
+#storyModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    color: #fff;
+    overflow: auto;
+    padding: 30px;
+    z-index: 200;
+}
+
+#storyModal span {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+}
+
+#storyContent {
+    max-width: 800px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.8;
+}
 </style>
 </head>
 <body>
@@ -178,24 +225,10 @@
             <li><button onclick="togglePart('whisper1')">Part 1</button></li>
             <li><button onclick="togglePart('whisper2')">Part 2</button></li>
             <li><button onclick="togglePart('whisper3')">Part 3</button></li>
-            <li><button onclick="togglePart('whisper4')">Part 4</button></li>
-            <li><button onclick="togglePart('whisper5')">Part 5</button></li>
-            <li><button onclick="togglePart('whisper6')">Part 6</button></li>
-            <li><button onclick="togglePart('whisper7')">Part 7</button></li>
-            <li><button onclick="togglePart('whisper8')">Part 8</button></li>
-            <li><button onclick="togglePart('whisper9')">Part 9</button></li>
-            <li><button onclick="togglePart('whisper10')">Part 10</button></li>
         </ul>
         <div id="whisper1" class="part-section"><p>Whispers Part 1 full story content goes here...</p></div>
         <div id="whisper2" class="part-section"><p>Whispers Part 2 full story content goes here...</p></div>
         <div id="whisper3" class="part-section"><p>Whispers Part 3 full story content goes here...</p></div>
-        <div id="whisper4" class="part-section"><p>Whispers Part 4 full story content goes here...</p></div>
-        <div id="whisper5" class="part-section"><p>Whispers Part 5 full story content goes here...</p></div>
-        <div id="whisper6" class="part-section"><p>Whispers Part 6 full story content goes here...</p></div>
-        <div id="whisper7" class="part-section"><p>Whispers Part 7 full story content goes here...</p></div>
-        <div id="whisper8" class="part-section"><p>Whispers Part 8 full story content goes here...</p></div>
-        <div id="whisper9" class="part-section"><p>Whispers Part 9 full story content goes here...</p></div>
-        <div id="whisper10" class="part-section"><p>Whispers Part 10 full story content goes here...</p></div>
     </div>
 
     <div class="story-category">
@@ -204,24 +237,16 @@
             <li><button onclick="togglePart('shadow1')">Part 1</button></li>
             <li><button onclick="togglePart('shadow2')">Part 2</button></li>
             <li><button onclick="togglePart('shadow3')">Part 3</button></li>
-            <li><button onclick="togglePart('shadow4')">Part 4</button></li>
-            <li><button onclick="togglePart('shadow5')">Part 5</button></li>
-            <li><button onclick="togglePart('shadow6')">Part 6</button></li>
-            <li><button onclick="togglePart('shadow7')">Part 7</button></li>
-            <li><button onclick="togglePart('shadow8')">Part 8</button></li>
-            <li><button onclick="togglePart('shadow9')">Part 9</button></li>
-            <li><button onclick="togglePart('shadow10')">Part 10</button></li>
         </ul>
         <div id="shadow1" class="part-section"><p>Shadows Part 1 full story content goes here...</p></div>
         <div id="shadow2" class="part-section"><p>Shadows Part 2 full story content goes here...</p></div>
         <div id="shadow3" class="part-section"><p>Shadows Part 3 full story content goes here...</p></div>
-        <div id="shadow4" class="part-section"><p>Shadows Part 4 full story content goes here...</p></div>
-        <div id="shadow5" class="part-section"><p>Shadows Part 5 full story content goes here...</p></div>
-        <div id="shadow6" class="part-section"><p>Shadows Part 6 full story content goes here...</p></div>
-        <div id="shadow7" class="part-section"><p>Shadows Part 7 full story content goes here...</p></div>
-        <div id="shadow8" class="part-section"><p>Shadows Part 8 full story content goes here...</p></div>
-        <div id="shadow9" class="part-section"><p>Shadows Part 9 full story content goes here...</p></div>
-        <div id="shadow10" class="part-section"><p>Shadows Part 10 full story content goes here...</p></div>
+    </div>
+
+    <!-- Story Modal -->
+    <div id="storyModal">
+        <span onclick="closeStoryModal()">&times;</span>
+        <div id="storyContent"></div>
     </div>
 </section>
 
@@ -229,7 +254,7 @@
 <section id="about">
     <h1>About Dreamy Tales</h1>
     <p>
-        Dreamy Tales is a digital storytelling platform created by Jerry, designed to transport readers into worlds of imagination, emotion, and reflection. Through immersive narratives, characters come to life and journeys unfold, exploring love, heartache, resilience, and self-discovery. Each story is crafted with care to touch the heart and ignite curiosity. Whether exploring mystical lands, engaging with everyday dilemmas, or diving deep into personal journeys, Dreamy Tales ensures readers experience narratives with depth, inspiration, and emotion. Join us on a journey where every page resonates and every character leaves a lasting impression.
+        Dreamy Tales is a digital storytelling platform created by Jerry, designed to transport readers into worlds of imagination, emotion, and reflection. Through immersive narratives, characters come to life and journeys unfold, exploring love, heartache, resilience, and self-discovery. Each story is crafted with care to touch the heart and ignite curiosity.
     </p>
 </section>
 
@@ -237,7 +262,7 @@
 <section id="contact">
     <h1>Contact Jerry</h1>
     <p class="contact-text">
-        We would love to hear from you! If you have questions, suggestions, or just want to share your thoughts about Dreamy Tales, please send an email. Your feedback helps us grow and improve. Every message is read with care and appreciated. Feel free to reach out with inquiries about stories, collaborations, or any creative ideas you may have.
+        We would love to hear from you! Please send your questions, suggestions, or thoughts.
     </p>
     <form onsubmit="submitContact(event)">
         <input type="text" placeholder="Your Name" required id="contactName">
@@ -248,32 +273,40 @@
 </section>
 
 <script>
-    // Section navigation
-    function showSection(id) {
-        document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        window.scrollTo(0,0);
-    }
+// Section navigation
+function showSection(id) {
+    document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0,0);
+}
 
-    // Toggle story parts
-    function togglePart(id) {
-        const part = document.getElementById(id);
-        part.style.display = part.style.display === 'block' ? 'none' : 'block';
-    }
+// Open story part in a modal
+function togglePart(id) {
+    const content = document.getElementById(id).innerHTML;
+    const modal = document.getElementById('storyModal');
+    const storyContent = document.getElementById('storyContent');
+    storyContent.innerHTML = content;
+    modal.style.display = 'block';
+}
 
-    // Dark mode toggle
-    function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode');
-    }
+// Close modal
+function closeStoryModal() {
+    document.getElementById('storyModal').style.display = 'none';
+}
 
-    // Simple contact submission simulation
-    function submitContact(event) {
-        event.preventDefault();
-        alert("Thank you, " + document.getElementById("contactName").value + "! Your message has been received.");
-        document.getElementById("contactName").value = '';
-        document.getElementById("contactEmail").value = '';
-        document.getElementById("contactMessage").value = '';
-    }
+// Dark mode toggle
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+}
+
+// Simple contact submission
+function submitContact(event) {
+    event.preventDefault();
+    alert("Thank you, " + document.getElementById("contactName").value + "! Your message has been received.");
+    document.getElementById("contactName").value = '';
+    document.getElementById("contactEmail").value = '';
+    document.getElementById("contactMessage").value = '';
+}
 </script>
 
 </body>
