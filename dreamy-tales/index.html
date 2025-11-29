@@ -7,175 +7,119 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f8;
+            background-color: #f5f5f5;
             color: #333;
-            margin: 0;
-            padding: 0;
+            padding: 20px;
+            line-height: 1.6;
         }
 
-        header {
-            background-color: #4B0082;
-            color: white;
-            padding: 30px 20px;
+        /* Logo and header */
+        .logo-container {
             text-align: center;
-            position: relative;
+            margin-bottom: 20px;
         }
 
-        /* Logo D t J */
         .logo {
             font-size: 48px;
             font-weight: bold;
-            letter-spacing: 10px;
+            color: #4B0082;
             position: relative;
             display: inline-block;
         }
 
-        .logo span.t {
+        .logo span.plus {
             position: absolute;
-            top: -20px;
-            font-size: 28px;
+            top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            color: #FFD700;
+            font-size: 32px;
+            color: #FF4500;
         }
 
-        nav {
-            margin-top: 20px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 0 15px;
-            font-size: 18px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        main {
-            padding: 30px 20px;
+        h1 {
+            text-align: center;
+            color: #4B0082;
+            margin-bottom: 40px;
         }
 
         h2 {
             color: #800000;
             margin-top: 40px;
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 5px;
         }
 
         ul {
-            list-style: none;
+            list-style-type: none;
             padding-left: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
         }
 
-        ul li {
-            margin: 5px 0;
+        li {
+            margin: 10px 0;
         }
 
-        ul li a {
-            color: #4B0082;
+        a {
             text-decoration: none;
-            background-color: #e0d4f7;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
+            color: #0066cc;
+            font-weight: bold;
         }
 
-        ul li a:hover {
-            background-color: #d1b3f0;
+        a:hover {
+            text-decoration: underline;
         }
 
-        footer {
-            background-color: #4B0082;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        @media(max-width:600px){
-            .logo {
-                font-size: 36px;
-                letter-spacing: 5px;
-            }
-
-            .logo span.t {
-                font-size: 20px;
-                top: -15px;
-            }
-
-            nav a {
-                display: block;
-                margin: 5px 0;
-            }
-
-            ul {
-                flex-direction: column;
-            }
-
-            ul li a {
-                width: 100%;
-                text-align: center;
-            }
+        .section {
+            margin-bottom: 50px;
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <!-- Logo -->
+    <div class="logo-container">
         <div class="logo">
-            D<span class="t">t</span>J
+            D<span class="plus">t</span>J
         </div>
-        <nav>
-            <a href="#shadows">Shadows</a>
-            <a href="#whispers">Whispers</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+    </div>
 
-    <main>
-        <section id="shadows">
-            <h2>Shadows of the Heart</h2>
-            <ul>
-                <li><a href="shadows_part1.html">Part 1</a></li>
-                <li><a href="shadows_part2.html">Part 2</a></li>
-                <li><a href="shadows_part3.html">Part 3</a></li>
-                <li><a href="shadows_part4.html">Part 4</a></li>
-                <li><a href="shadows_part5.html">Part 5</a></li>
-                <li><a href="shadows_part6.html">Part 6</a></li>
-                <li><a href="shadows_part7.html">Part 7</a></li>
-                <li><a href="shadows_part8.html">Part 8</a></li>
-                <li><a href="shadows_part9.html">Part 9</a></li>
-                <li><a href="shadows_part10.html">Part 10</a></li>
-            </ul>
-        </section>
+    <h1>Dreamy Tales</h1>
 
-        <section id="whispers">
-            <h2>Whispers of Desire</h2>
-            <ul>
-                <li><a href="whispers_part1.html">Part 1</a></li>
-                <li><a href="whispers_part2.html">Part 2</a></li>
-                <li><a href="whispers_part3.html">Part 3</a></li>
-                <li><a href="whispers_part4.html">Part 4</a></li>
-                <li><a href="whispers_part5.html">Part 5</a></li>
-                <li><a href="whispers_part6.html">Part 6</a></li>
-                <li><a href="whispers_part7.html">Part 7</a></li>
-                <li><a href="whispers_part8.html">Part 8</a></li>
-                <li><a href="whispers_part9.html">Part 9</a></li>
-                <li><a href="whispers_part10.html">Part 10</a></li>
-            </ul>
-        </section>
-    </main>
+    <div class="section">
+        <h2>Shadows of the Heart</h2>
+        <ul>
+            <li><a href="shadows_part1.html">Part 1</a></li>
+            <li><a href="shadows_part2.html">Part 2</a></li>
+            <li><a href="shadows_part3.html">Part 3</a></li>
+            <li><a href="shadows_part4.html">Part 4</a></li>
+            <li><a href="shadows_part5.html">Part 5</a></li>
+            <li><a href="shadows_part6.html">Part 6</a></li>
+            <li><a href="shadows_part7.html">Part 7</a></li>
+            <li><a href="shadows_part8.html">Part 8</a></li>
+            <li><a href="shadows_part9.html">Part 9</a></li>
+            <li><a href="shadows_part10.html">Part 10</a></li>
+        </ul>
+    </div>
 
-    <footer>
-        &copy; 2025 Dreamy Tales. All rights reserved.
-    </footer>
+    <div class="section">
+        <h2>Whispers of Desire</h2>
+        <ul>
+            <li><a href="whispers_part1.html">Part 1</a></li>
+            <li><a href="whispers_part2.html">Part 2</a></li>
+            <li><a href="whispers_part3.html">Part 3</a></li>
+            <li><a href="whispers_part4.html">Part 4</a></li>
+            <li><a href="whispers_part5.html">Part 5</a></li>
+            <li><a href="whispers_part6.html">Part 6</a></li>
+            <li><a href="whispers_part7.html">Part 7</a></li>
+            <li><a href="whispers_part8.html">Part 8</a></li>
+            <li><a href="whispers_part9.html">Part 9</a></li>
+            <li><a href="whispers_part10.html">Part 10</a></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Other Pages</h2>
+        <ul>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
 
 </body>
 </html>
