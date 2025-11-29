@@ -10,25 +10,103 @@
         a { text-decoration: none; color: #0066cc; }
         a:hover { text-decoration: underline; }
         .footer { margin-top: 30px; }
+        .comments-section { margin-top: 40px; }
+        .comment { border-bottom: 1px solid #ccc; padding: 10px 0; }
+        button { margin-right: 10px; padding: 5px 10px; }
     </style>
 </head>
 <body>
 
-<h1>Shadows of the Heart - Part 9</h1>
+    <h1>Shadows of the Heart - Part 9</h1>
 
-<p>The next morning, Lina woke up feeling lighter than she had in weeks. Memories of yesterday lingered like warm sunlight. She knew today would bring more challenges, but for the first time, she felt ready to face them.</p>
+    <p>Lina and he spent the morning wandering through the old town. Each cobblestone street seemed to echo memories of laughter, of moments long gone. Yet, unlike before, those memories no longer weighed on Lina’s heart—they were a gentle reminder of growth and resilience.</p>
 
-<p>He called her later, his voice nervous but hopeful. "Can we meet?" he asked. Lina agreed. They walked together to a quiet park, leaves rustling under their feet. Words flowed more easily now, and silences no longer felt heavy.</p>
+    <p>He held her hand and whispered, “I never realized how much courage it takes to forgive yourself and others.” Lina nodded, feeling a warmth spread through her chest. “It’s not easy, but it’s worth it,” she replied, squeezing his hand.</p>
 
-<p>"I don’t want us to lose this," he said. "I want to fight for us." Lina smiled, a small but real smile. She realized that love didn’t mean perfection; it meant effort, patience, and courage to face the unknown together.</p>
+    <p>The afternoon brought a sudden rain. They ran under the awning of a small bakery, dripping and laughing. The raindrops danced around them, mirroring the renewed joy in their hearts. Even the world seemed to pause in that moment, giving them a fleeting eternity.</p>
 
-<p>They sat on a bench, watching the sun rise over the horizon. Birds chirped, and the world seemed to hold its breath. Every laugh, every shared story, every gentle touch built a bridge over the pain of the past. Lina’s heart felt full, fragile but alive.</p>
+    <p>Over steaming cups of cocoa, they shared dreams and fears. Lina spoke of her ambitions, the shadows that had haunted her, and the hope that now guided her. He listened, truly listened, offering understanding rather than solutions. She realized that this connection—the deep, patient understanding—was what she had been missing all along.</p>
 
-<div class="footer">
-    <a href="shadows_part10.html">Next Part →</a> |
-    <a href="index.html">Home</a> |
-    <a href="contact.html">Contact</a>
-</div>
+    <p>As twilight approached, they walked by the lake. The water mirrored the pink and purple sky, reflecting not just beauty, but the journey they had taken together. Lina’s heart felt lighter than ever. The shadows of yesterday no longer dictated the rhythm of her life—they were simply a part of her story.</p>
+
+    <div class="footer">
+        <a href="shadows_part8.html">← Previous Part</a> | 
+        <a href="index.html">Home</a> | 
+        <a href="shadows_part10.html">Next Part →</a>
+    </div>
+
+    <div class="comments-section">
+        <h2>Reactions & Comments</h2>
+        <button id="likeBtn">👍🏿 Like (<span id="likeCount">0</span>)</button>
+        <button id="dislikeBtn">👎🏿 Dislike (<span id="dislikeCount">0</span>)</button>
+
+        <h3>Leave a Comment:</h3>
+        <input type="text" id="commentInput" placeholder="Write a comment..." style="width:80%; padding:5px;">
+        <button id="submitComment">Submit</button>
+
+        <div id="commentsList"></div>
+    </div>
+
+    <!-- Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+        import { getFirestore, collection, addDoc, doc, updateDoc, increment, onSnapshot } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyC2AdR1P85jqzsZv2wrw8klfotXYDwn7j4",
+            authDomain: "dreamy-tales-78de0.firebaseapp.com",
+            projectId: "dreamy-tales-78de0",
+            storageBucket: "dreamy-tales-78de0.appspot.com",
+            messagingSenderId: "377795995336",
+            appId: "1:377795995336:web:ff99da8aaf3fe76741a7fd"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const likesRef = doc(db, "shadows_part9", "reactions");
+        const commentsRef = collection(db, "shadows_part9", "comments");
+
+        const likeCount = document.getElementById("likeCount");
+        const dislikeCount = document.getElementById("dislikeCount");
+        const likeBtn = document.getElementById("likeBtn");
+        const dislikeBtn = document.getElementById("dislikeBtn");
+        const commentInput = document.getElementById("commentInput");
+        const submitComment = document.getElementById("submitComment");
+        const commentsList = document.getElementById("commentsList");
+
+        onSnapshot(likesRef, (docSnap) => {
+            if(docSnap.exists()) {
+                likeCount.textContent = docSnap.data().likes || 0;
+                dislikeCount.textContent = docSnap.data().dislikes || 0;
+            }
+        });
+
+        likeBtn.addEventListener("click", async () => {
+            await updateDoc(likesRef, { likes: increment(1) });
+        });
+
+        dislikeBtn.addEventListener("click", async () => {
+            await updateDoc(likesRef, { dislikes: increment(1) });
+        });
+
+        onSnapshot(commentsRef, (snapshot) => {
+            commentsList.innerHTML = "";
+            snapshot.forEach(doc => {
+                const div = document.createElement("div");
+                div.className = "comment";
+                div.textContent = doc.data().text;
+                commentsList.appendChild(div);
+            });
+        });
+
+        submitComment.addEventListener("click", async () => {
+            if(commentInput.value.trim() !== "") {
+                await addDoc(commentsRef, { text: commentInput.value });
+                commentInput.value = "";
+            }
+        });
+    </script>
 
 </body>
 </html>
